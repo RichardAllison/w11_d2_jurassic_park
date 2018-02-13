@@ -16,6 +16,7 @@ Park.prototype.removeDinosaursOfType = function(dinosaurType) {
     }
   }
 }
+
 Park.prototype.allOverTwoOffspring = function() {
   const dinosaurs = [];
   for (var dinosaur of this.enclosure) {
@@ -24,6 +25,15 @@ Park.prototype.allOverTwoOffspring = function() {
     }
   }
   return dinosaurs;
+}
+
+Park.prototype.calculateDinosaurs = function(numberOfYears) {
+  let dinosaurCount = 0;
+  for (var dinosaur of this.enclosure) {
+    dinosaurCount++;
+    dinosaurCount += dinosaur.numberOfOffspring;
+  }
+  return dinosaurCount * numberOfYears;
 }
 
 module.exports = Park;

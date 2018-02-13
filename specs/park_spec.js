@@ -62,4 +62,9 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur2, dinosaur3, dinosaur4]);
   });
 
+  it('should be able to calculate number of dinosaurs after 1 year starting with 1 dinosaur', function(){
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(park.calculateDinosaurs(1), 4);
+  });
+
 });
