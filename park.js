@@ -33,7 +33,7 @@ Park.prototype.calculateDinosaurs = function(numberOfYears) {
     dinosaurCount++;
     dinosaurCount += dinosaur.numberOfOffspring;
   }
-  return dinosaurCount * numberOfYears;
+  return dinosaurCount ** numberOfYears;
 }
 
 module.exports = Park;
