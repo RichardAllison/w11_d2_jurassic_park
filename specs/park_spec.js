@@ -9,6 +9,7 @@ describe('Park', function() {
   let dinosaur2;
   let dinosaur3;
   let dinosaur4;
+  let dinosaur5;
 
   beforeEach(function() {
     park = new Park();
@@ -16,6 +17,7 @@ describe('Park', function() {
     dinosaur2 = new Dinosaur('Triceratops', 3);
     dinosaur3 = new Dinosaur('Velociraptor', 6);
     dinosaur4 = new Dinosaur('Diplodocus', 4);
+    dinosaur5 = new Dinosaur('Triceratops', 2);
   });
 
   it('should have an enclouse that starts empty', function() {
@@ -23,10 +25,31 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, []);
   });
 
-  it('should be able to add dinosaurs', function() {
+  it('should be able to add a dinosaur', function() {
     assert.strictEqual(park.enclosure.length, 0);
     park.addDinosaur(dinosaur1);
     assert.strictEqual(park.enclosure.length, 1);
+  });
+
+  it('should be able to add multiple dinosaurs', function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    park.addDinosaur(dinosaur5);
+    assert.strictEqual(park.enclosure.length, 5);
+  });
+
+  it('should be able to remove all dinosaurs of particular type', function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    park.addDinosaur(dinosaur5);
+    assert.strictEqual(park.enclosure.length, 5);
+    park.removeDinosaursOfType('Triceratops');
+    assert.strictEqual(park.enclosure.length, 3);
+    assert.deepStrictEqual(park.enclosure, [dinosaur1, dinosaur3, dinosaur4]);
   });
 
 });
