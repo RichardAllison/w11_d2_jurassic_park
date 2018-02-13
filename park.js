@@ -30,10 +30,15 @@ Park.prototype.allOverTwoOffspring = function() {
 Park.prototype.calculateDinosaurs = function(numberOfYears) {
   let dinosaurCount = 0;
   for (var dinosaur of this.enclosure) {
-    dinosaurCount++;
-    dinosaurCount += dinosaur.numberOfOffspring;
+    let temp = 1; // this dinosaur
+    for (var i = 0; i < numberOfYears; i++) {
+      const offspringRate = dinosaur.numberOfOffspring;
+      let offspring = temp * offspringRate; // each dinosaur's offspring, starting with total dinosaurs for this year as set in temp (one in first year, increases with each loop)
+      temp += offspring;
+    }
+    dinosaurCount += temp;
   }
-  return dinosaurCount ** numberOfYears;
+  return dinosaurCount;
 }
 
 module.exports = Park;
