@@ -10,12 +10,12 @@ describe('Dinosaur', function() {
   });
 
   it('should have a type', function() {
-    actual = dinosaur.type;
+    const actual = dinosaur.type;
     assert.strictEqual(actual, 'Tyrannosaurus Rex');
   });
 
   it('should have a number of offspring per year', function() {
-    actual = dinosaur.numberOfOffspring;
+    const actual = dinosaur.numberOfOffspring;
     assert.strictEqual(actual, 2);
   });
 
